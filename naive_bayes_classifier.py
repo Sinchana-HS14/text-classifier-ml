@@ -16,7 +16,6 @@ texts =[
     "This movie is good!!",
     "Worst movie ever",
     "Amazing direction",
-    "Amazing direction",
     "I enjoyed it",
     "Movie is not so good but I like casting",
     "songs are really nice",
@@ -30,7 +29,7 @@ labels = ["positive",
           "positive",
           "positive",
           "positive",
-          "neagtive",
+          "negative",    #fixed here
           "positive",
           "negative",
           "negative",
@@ -59,10 +58,10 @@ model1.fit(X_train_vec,Y_train)
 y_predc=model1.predict(X_test_vec)
 print("Prediction : ",y_predc)
 
-print("Accuract : ",accuracy_score(Y_test,y_predc))
+print("Accuracy : ",accuracy_score(Y_test,y_predc))
 print(classification_report(Y_test,y_predc))
 
-new_text=input("Enter your feedback : ")
+new_text=input("Enter your feedback : ").strip()
 new_text=preprocess(new_text)
 new_text_vec=vector.transform([new_text])
 print("Prediction : ",model1.predict(new_text_vec))
